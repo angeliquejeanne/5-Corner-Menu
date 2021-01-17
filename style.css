@@ -1,0 +1,122 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: lightgrey;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn-open   {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: lime;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 20;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.ligne {
+    width: 40px;
+    height: 4px;
+    border-radius: 5px;
+    position: fixed;
+    background: snow;
+    right: 40px;
+    top: 58px;
+    z-index: 50;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
+.ligne::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    height: 4px;
+    border-radius: 5px;
+    width: 100%;
+    background:black;
+    transition: all 0.2s ease-in-out;
+}
+.ligne::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    height: 4px;
+    border-radius: 5px;
+    width: 100%;
+    background: black;
+    transition: all 0.2s ease-in-out;
+}
+
+.ligne.active-ligne::before {
+    top: 0;
+}
+.ligne.active-ligne::after {
+    bottom: 0;
+    transform: rotate(90deg)
+}
+
+h1 {
+    padding: 100px 200px;
+    font-size: 45px;
+    color: lime;
+}
+.items {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    background: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.icones {
+    width: 35px;
+    color: snow;
+}
+
+
+.items:nth-child(2){
+    right: 320px;
+    top: 40px;
+}
+
+.items:nth-child(3){
+    right: 275px;
+    top: 150px;
+}
+
+.items:nth-child(4){
+    right: 185px;
+    top: 240px;
+}
+
+.items:nth-child(5){
+    right: 70px;
+    top: 300px;
+}
+
+/* Anim */
+.active {
+    transform: scale(10);
+}
+.apparition {
+    visibility: visible;
+}
+.real {
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
